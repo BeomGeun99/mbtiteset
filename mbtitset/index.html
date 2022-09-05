@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나에게 맞는 취미와 아르바이트는?</title>
+    <meta name="description" content="나에게 맞는 취미와 아르바이트를 보여주고 MBTI에 대한 자세한 정보를 제공합니다.">
+    <meta property="og:type" content="website"> 
+    <meta property="og:title" content="나에게 맞는 취미와 아르바이트는?">
+    <meta property="og:description" content="나에게 맞는 취미와 아르바이트를 보여주고 MBTI에 대한 자세한 정보를 제공합니다.">
+    <meta property="og:image" content="https://beomgeunserengeti.netlify.app/lion.jpg">
+    <meta property="og:url" content="https://beomgeunserengeti.netlify.app/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="container">
+    <br><br><br>
+    <article id="main" class="start">
+        <h1 class="mt-5 text-center">🦁 나에게 맞는 취미 찾기 테스트 🦁</h1>
+        <img id="logo_img" class="rounded-circle mt-5" src="멋사로고.png" alt="animal">
+        <br><br><br>
+        <button type="button" class="btn btn-warning btn-lg" onclick="start();">테스트 시작하기</button>
+        <br>
+        <h5 class="mt-5 text-center">
+        copyright 2022 by 을지대학교 멋쟁이사자처럼 10기 프로젝트 1조
+        </h5> 
+        <br><br>
+    </article>
+
+    <article id="main" class="question">
+        <div class="progress mt-5">
+            <div class="progress-bar" role="progressbar" style="width: calc(100/12*1%)"></div>
+        </div>
+        <h1 id="title" class="text-center mt-5">문제</h1>
+        <br><br><br>
+        <input id="type" type="hidden" value="EI">
+        <button id="A" type="button" class="btn btn-warning btn-lg">Primary</button>
+        <br>
+        <button id="B" type="button" class="btn btn-warning btn-lg">Primary</button>
+        <br><br><br><br><br>
+    </article>
+
+    <article id="main" class="result">
+        <h1 class="text-center mt-5">이런 취미를 추천해요!</h1> 
+        <img id="img" class="pic mt-5 mb-5" src="lion.jpg" alt="animal">
+        <br><br><br>
+    </article>
+
+   
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+
+    <input type="hidden" id="EI" value="0">
+    <input type="hidden" id="SN" value="0">
+    <input type="hidden" id="TF" value="0">
+    <input type="hidden" id="JP" value="0">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    
+    <script>
+        var num = 1;
+        var q = {
+            1: {"title": "모두가 낯선 새로 생긴 캠핑동아리에서 나는?", "type": "EI", "A": "먼저 말을 걸며 함께 분위기를 띄운다.", "B" : "말을 걸어줄 수도 있으니 일단 기다리고 본다."},
+            2: {"title": "내가 더 끌리는 여가생활은?", "type": "EI", "A": "활동적인 여가생활", "B" : "조용하고 편안한 여가생활"},
+            3: {"title": "상대방을 대할때의 나는?", "type": "EI", "A": "상대방을 기분 좋게 해주는 편이다.", "B" : "상대를 배려 해주는 편이다."},
+            4: {"title": "밖에서 일 볼게 많은 경우, 하루에 끝내는 편인가 아니면 여러날로 나눠 끝내는 편인가?", "type": "EI", "A": "일이 많아도 여러 날에 나눠서 끝낸다.", "B" : "하루에 몰아서 끝낸다."},
+            5: {"title": "저녁시간 평화롭게 산책을 하려고 한다. 이때 나는?", "type": "EI", "A": "혼자는 심심해! 같이 산책할 친구가 있는지 찾아본다.", "B" : "동네산책은 개인플레이, 혼자가 평화롭다."},
+            6: {"title": "안주를 시킬 때 나는?", "type": "SN", "A": "새로운 안주보다는 무난한 걸로 가자.", "B" : "오! 이건 어떨까?? 새로운 안주를 시켜보자."},
+            7: {"title": "내가 지향하는 취미는?", "type": "SN", "A": "절차적이고 반복적인 것, 익숙한 것을 주로 하는 취미", "B" : "새로운 것을 경험하고 배우는 취미"},
+            8: {"title": "어려운 일에 부딪힌 나!", "type": "SN", "A": "하던 일을 잘 못한다.", "B" : "도전하고 싶은 마음이 생긴다."},
+            9: {"title": "오랜만에 음악 플레이리스트를 업데이트 해야겠다. 노래를 들을 때 나에게 더 중요한 것은?", "type": "SN", "A": "멜로디", "B" : "가사"},
+            10: {"title": "휴일의 점심시간 요리를 해보려고 한다. 나의 요리 스타일은?", "type": "SN", "A": "레시피를 찾고 철저히 레시피의 정량을 지킨다.", "B" : "손대중으로 요리한다."},
+            11: {"title": "내가 실패했을 때 더 두려운 것은?", "type": "TF", "A": "나의 실패에 대한 다른 사람들의 평판", "B" : "내가 해내지 못했다는 것에 대한 좌절감"},
+            12: {"title": "내가 원하는 나의 모습은?", "type": "TF", "A": "똑똑한 사람", "B" : "따뜻한 사람"},
+            13: {"title": "직접만든 쿠키를 선물했다. 인상적인 친구의 반응은?", "type": "TF", "A": "이걸 어떻게 만들어? 손재주 좋다!", "B" : "만들기 힘들었겠다. 맛있게 잘 먹을게!"},
+            14: {"title": "경기 패배 후, 감독으로써 해줄 말은?", "type": "TF", "A": "바로 냉정한 피드백에 돌입한다.", "B" : "격려의 말과 선수들 케어에 먼저 신경쓴다."},
+            15: {"title": "누군가 나를 싫어하는 것을 알았을때, 나는?", "type": "TF", "A": "싫어하든지 말든지", "B" : "내가 무슨 잘못을 했지?"},
+            16: {"title": "여행 중 예상치 못한 일로 계획이 틀어졌을 때 나는?", "type": "JP", "A": "이건 내 계획과 어긋나는 일이라 갑자기 스트레스가 확 밀려온다.", "B" : "모든 게 계획대로 흘러갈 수는 없으니 그럴 수도 있다고 생각하고 넘긴다."},
+            17: {"title": "어떤 일을 할 때 그에 대한 계획을 세워놓지 않았을 때 나는?", "type": "JP", "A": "불안하다.", "B" : "불안하지 않다."},
+            18: {"title": "어떠한 상황에 있어서 나는?", "type": "JP", "A": "상황을 통제하려 하거나 관리를 하는 편이다.", "B" : "상황에 지배되거나 다른 사람의 관리를 받는 편이다."},
+            19: {"title": "가고 싶었던 음식집이 있다. 근데 웨이팅이 있을 때 나는?", "type": "JP", "A": "기다린다.", "B" : "다른 곳으로 간다."},
+            20: {"title": "과제를 받은 경우, 나는?", "type": "JP", "A": "뭐부터 해야할지 계획을 세운다.", "B" : "자료조사부터 해보면서 생각한다."}
+        }
+
+        var result = {
+            "ENTP" : {"img" : "entp.jpg"},
+            "ENFP" : {"img" : "enfp.jpg"},
+            "ENTJ" : {"img" : "entj.jpg"},
+            "ENFJ" : {"img" : "enfj.jpg"},
+            "ISFP" : {"img" : "isfp.jpg"},
+            "ISFJ" : {"img" : "isfj.jpg"},
+            "ISTP" : {"img" : "istp.jpg"},
+            "ISTJ" : {"img" : "istj.jpg"},
+            "ESTJ" : {"img" : "estj.jpg"},
+            "ESTP" : {"img" : "estp.jpg"},
+            "ESFJ" : {"img" : "esfj.jpg"},
+            "ESFP" : {"img" : "esfp.jpg"},
+            "INFP" : {"img" : "infp.jpg"},
+            "INTP" : {"img" : "intp.jpg"},
+            "INTJ" : {"img" : "intj.jpg"},
+            "INFJ" : {"img" : "infj.jpg"}
+        }
+
+
+        function start() {
+            $(".start").hide();
+            $(".question").show();
+            next();
+        }
+
+        $("#A").click(function() {
+            var type = $("#type").val();
+            var preValue = $("#"+type).val();
+            $("#"+type).val(parseInt(preValue)+1);
+            next();
+        });
+
+        $("#B").click(function() {
+            next();
+        });
+
+
+
+        function next() {
+            if(num==21) {
+                $(".question").hide();
+                $(".result").show();
+                
+                $(".wiki-img").show();
+
+                var mbti = "";
+                ($("#EI").val() < 3) ? mbti+="I" : mbti+="E";
+                ($("#SN").val() < 3) ? mbti+="N" : mbti+="S";
+                ($("#TF").val() < 3) ? mbti+="F" : mbti+="T";
+                ($("#JP").val() < 3) ? mbti+="P" : mbti+="J";
+                $("#img").attr("src",result[mbti]["img"]);
+
+                if(mbti == "ENTP") {
+                    $(".button1").show();
+                }
+                if(mbti == "ENFP") {
+                    $(".button2").show();
+                }   
+                if(mbti == "ENTJ") {
+                    $(".button3").show();
+                }
+                if(mbti == "ENFJ") {
+                    $(".button4").show();
+                } 
+                if(mbti == "ISFP") {
+                    $(".button5").show();
+                }
+                if(mbti == "ISFJ") {
+                    $(".button6").show();
+                } 
+                if(mbti == "ISTP") {
+                    $(".button7").show();
+                }
+                if(mbti == "ISTJ") {
+                    $(".button8").show();
+                } 
+                if(mbti == "ESTJ") {
+                    $(".button9").show();
+                }
+                if(mbti == "ESTP") {
+                    $(".button10").show();
+                } 
+                if(mbti == "ESFJ") {
+                    $(".button11").show();
+                }
+                if(mbti == "ESFP") {
+                    $(".button12").show();
+                } 
+                if(mbti == "INFP") {
+                    $(".button13").show();
+                }
+                if(mbti == "INTP") {
+                    $(".button14").show();
+                } 
+                if(mbti == "INTJ") {
+                    $(".button15").show();
+                }
+                if(mbti == "INFJ") {
+                    $(".button16").show();
+                }
+                 
+
+            } else {
+                $(".progress-bar").attr('style', 'width : calc(100/20*'+num+'%)');
+                $("#title").html(q[num]["title"]);
+                $("#type").val(q[num]["type"]);
+                $("#A").html(q[num]["A"]);
+                $("#B").html(q[num]["B"]);
+                num++;
+            }
+        }
+</script>
+    
+    <div class="bbttnn">
+        <input type='button' class='button1 mb-5' name='btn1' value='ENTP에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/ENTP')">
+        <input type='button' class='button2 mb-5' name='btn2' value='ENFP에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/ENFP')">
+        <input type='button' class='button3 mb-5' name='btn3' value='ENTJ에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/ENTJ')">
+        <input type='button' class='button4 mb-5' name='btn4' value='ENFJ에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/ENFJ')">
+        <input type='button' class='button5 mb-5' name='btn5' value='ISFP에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/ISFP')">
+        <input type='button' class='button6 mb-5' name='btn6' value='ISFJ에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/ISFJ')">
+        <input type='button' class='button7 mb-5' name='btn7' value='ISTP에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/ISTP')">
+        <input type='button' class='button8 mb-5' name='btn8' value='ISTJ에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/ISTJ')">
+        <input type='button' class='button9 mb-5' name='btn9' value='ESTJ에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/ESTJ')">
+        <input type='button' class='button10 mb-5' name='btn10' value='ESTP에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/ESTP')">
+        <input type='button' class='button11 mb-5' name='btn11' value='ESFJ에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/ESFJ')">
+        <input type='button' class='button12 mb-5' name='btn12' value='ESFP에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/ESFP')">
+        <input type='button' class='button13 mb-5' name='btn13' value='INFP에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/INFP')">
+        <input type='button' class='button14 mb-5' name='btn14' value='INTP에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/INTP')">
+        <input type='button' class='button15 mb-5' name='btn15' value='INTJ에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/INTJ')">
+        <input type='button' class='button16 mb-5' name='btn16' value='INFJ에 대한 정보 자세히 보기' style="float: right;" onclick = "window.open('https://namu.wiki/w/INFJ')">
+    </div>
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6277e1e93b7d554c"></script>
+
+<article class="result">
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="share addthis_inline_share_toolbox"></div>
+
+</article>
+
+<article class="kakao_ad mt-5">
+    <ins class="kakao_ad_area" style="display:none;" 
+    data-ad-unit    = "DAN-0px3GUq0gOUq24bD" 
+    data-ad-width   = "320" 
+    data-ad-height  = "100"></ins> 
+</article>
+
+<a class="mt-5 banner" href="https://www.codelion.net/catalog/Q291cnNlTm9kZTpqbW9r?utm_source=animal_test&utm_medium=web_lecture&utm_campaign=yunbumkun36@likelion.org">
+    <img class="banner-img" src="banner.png" alt="banner">
+</a>
+
+</body>
+</html>

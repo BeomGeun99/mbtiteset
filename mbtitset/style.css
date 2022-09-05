@@ -1,0 +1,195 @@
+article {
+    display: flex;
+    flex-direction: column;
+}
+
+.question {
+    display: none;
+}
+
+.result {
+    display: none;
+}
+
+
+#img {
+    width : 700px;
+    height : 800px;
+    margin : 0 auto;
+}
+
+.share {
+    margin:0 auto;
+}
+
+.kakao_ad {
+    width : 320px;
+    margin : 0 auto;
+}
+
+.banner {
+    display : flex;
+    justify-content: center;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.banner-img {
+    width : 300px;
+}
+
+.wiki-img {
+    display : none;
+}
+
+.bbttnn {
+    overflow: hidden;
+}
+
+.button1 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+
+.button2 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+.button3 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+
+.button4 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+.button5 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+
+.button6 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+.button7 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+
+.button8 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+.button9 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+
+.button10 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+.button11 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+
+.button12 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+.button13 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+
+.button14 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+.button15 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+
+.button16 {
+    display : none;
+    position: relative;
+    left: -39%;
+}
+
+body {
+    background-image: url('배경.jpg');
+}
+#main {
+    background-color: whitesmoke;
+}
+button {
+    font-family: 'Cafe24Ssurround';
+}
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+h1 {
+    font-family: 'Cafe24SsurroundAir';
+    text-align: center; 
+    color: #2D63A7; 
+    text-shadow: 2px 2px #F1C164; 
+    margin: 0;
+    font-weight: bold;
+}
+h2 {
+    font-family: 'Cafe24SsurroundAir';
+}
+h5 {
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#logo_img {
+    width: 200px;
+    display : block ; 
+    margin : auto;
+}
+.progress mt-5{
+    margin: 100px auto;
+    width: 500px;
+    text-align: center;
+}
+.progress-bar {   
+    background-color: #FCBC51; 
+    width: 100%; 
+    background-image: linear-gradient(
+          45deg, rgb(252,163,17) 25%, 
+          transparent 25%, transparent 50%, 
+          rgb(252,163,17) 50%, rgb(252,163,17) 75%,
+          transparent 75%, transparent); 
+    animation: progressAnimationStrike 6s;
+  }
